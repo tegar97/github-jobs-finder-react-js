@@ -27,8 +27,9 @@ import axios from 'axios'
      useEffect(() => {
         const cancelToken = axios.CancelToken.source()
          dispatch({type: ACTIONS.MAKE_REQUEST})
+         //connect to api 
          axios.get(BASE_URL,{
-             params : {markdown : true,page: page, ...params}
+            params: { markdown: true, page: page, ...params }
          }).then(res => {
              dispatch({type: ACTIONS.GET_DATA,payload: {jobs : res.data}})
          }).catch(e =>{
@@ -41,5 +42,7 @@ import axios from 'axios'
          }
     
      }, [params,page])
+    
      return state
+    
  }
